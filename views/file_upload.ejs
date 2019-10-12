@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      .title {
+        margin: 50px;
+        background: #14e0e0;
+        padding: 15px 0px;
+        border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="text-center title"><%= title %></h2>
+    <% if(uploadStatus == true){ %>
+    <label for="message" class="alert alert-success">Uploaded successfully</label>
+    <% } %>
+    <div class="row">
+      <div class="col-md-5">
+            <form action="/singleFile" enctype="multipart/form-data" method="POST">
+                <h4 >Single Image:</h4>
+                <input type="file"  id="singleImage" name="singleImage" required>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+      </div>
+
+      <div class="col-md-offset-1 col-md-5">
+            <form action="/multipleFile" enctype="multipart/form-data" method="POST">
+                <h4 for="name">Multiple Image:</h4>
+                <input type="file"  id="multipleImage" name="multipleImage" multiple required>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+      </div>
+  </div>
+  
+  <br/> <br/>
+  
+  
+</div>
+
+</body>
+</html>
